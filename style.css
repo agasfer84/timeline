@@ -1,6 +1,6 @@
 .day_element {
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
     background-color: indianred;
     display: inline-block;
 }
@@ -13,10 +13,23 @@
     border-radius: 4px;
 }
 
+.evented {
+    width: 8px;
+    height: 8px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid indianred;
+}
+
 .clicked {
     width: 8px;
     height: 8px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
+    background-color: indianred;
+    border: 0px;
 }
+

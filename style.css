@@ -1,0 +1,22 @@
+.day_element {
+    width: 4px;
+    height: 4px;
+    background-color: indianred;
+    display: inline-block;
+}
+
+.day_element:hover {
+    width: 8px;
+    height: 8px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.clicked {
+    width: 8px;
+    height: 8px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}

@@ -8,6 +8,11 @@ function main ()
 
     const startDate = new Date('1984-05-28');
     const stopDate = new Date('1994-09-01');
+    const preGorbiDate = new Date('1985-03-11');
+    const startGrandMotherDate = new Date('1987-01-02');
+    const stopGrandMotherDate = new Date('1987-06-11');
+    const crushUSSRDate = new Date('1991-12-26');
+
     console.log(self.data[1984][5][28].text); //[5][28].text
 
     Date.prototype.addDays = function(days) {
@@ -28,6 +33,14 @@ function main ()
         return dateArray;
     };
 
+    self.getPeriodClass = function(itemDate) {
+        if (itemDate < preGorbiDate) return 'preGorbi';
+
+        if ((itemDate <= stopGrandMotherDate) && (itemDate >= startGrandMotherDate)) return 'grandMother';
+
+        if (itemDate > crushUSSRDate) return 'postUSSR';
+    };
+
 
 
     self.days = self.getDates(startDate, stopDate);
@@ -41,6 +54,7 @@ function main ()
         days.forEach(function(item, i) {
             var newDayDiv = document.createElement('div');
             var date = item["date"];
+            var periodClass = self.getPeriodClass(item["date"]);
 
             const options = {
                 year: 'numeric',
@@ -52,7 +66,7 @@ function main ()
             var dateFormatted = date.toLocaleString("ru", options);
             var day_element_evented_class = (self.data[item.year] && self.data[item.year][item.month] && self.data[item.year][item.month][item.day] && self.data[item.year][item.month][item.day]["text"] !== 'undefined' ) ? " evented" : "";
 
-            newDayDiv.setAttribute("class", "day_element" + day_element_evented_class);
+            newDayDiv.setAttribute("class", "day_element" + ' ' + periodClass + ' ' + day_element_evented_class);
             newDayDiv.setAttribute("year", item.year);
             newDayDiv.setAttribute("month", item.month);
             newDayDiv.setAttribute("day", item.day);
